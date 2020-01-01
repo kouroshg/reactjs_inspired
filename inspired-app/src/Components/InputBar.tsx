@@ -10,6 +10,11 @@ const InputBar: React.FC<IProps> = (props:IProps) => {
 
   const [inputValue, setInputValue] = useState('')
 
+  const handleAdd = () => {
+    setInputValue('')
+    props.onClickAdd(inputValue)
+  }
+
   return(
 
       <Row className='shadow' >
@@ -19,7 +24,7 @@ const InputBar: React.FC<IProps> = (props:IProps) => {
           </InputGroup>
         </Col>
         <Col sm='2' className='p-0'>
-        <Button onClick={()=>props.onClickAdd(inputValue)} style={{fontSize:'3vh', minWidth:100, borderRadius:0}}  color='info' className='p-3 w-100 h-100'>
+        <Button onClick={()=>handleAdd()} style={{fontSize:'3vh', minWidth:100, borderRadius:0}}  color='info' className='p-3 w-100 h-100'>
           Add
         </Button>
         </Col>

@@ -25,20 +25,6 @@ const App: React.FC = () => {
     setNameList(updateArr)
   }
 
-  const shuffle = () =>{
-
-    let shuffled = [...nameList]
-
-    for (let i = 0; i < nameList.length; i++) {
-      const j = Math.floor(Math.random() * i)
-      const temp = nameList[i]
-      shuffled[i] = shuffled[j]
-      shuffled[j] = temp
-    }
-
-    return shuffled
-  }
-
   return (
 
     <div>
@@ -55,7 +41,7 @@ const App: React.FC = () => {
         </Row>
         <Row className="d-flex justify-content-center p-0">
           <Col xs='12' sm='8'>
-            <RandomNameModal shuffledList={shuffle()} isDisabled={nameList.length > 0 ? false : true}></RandomNameModal>
+            <RandomNameModal nameList={nameList} isDisabled={nameList.length > 0 ? false : true}></RandomNameModal>
           </Col>
         </Row>
       </Container>
